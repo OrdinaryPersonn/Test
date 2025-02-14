@@ -2,11 +2,16 @@ import { useState } from "react";
 
 export default function Home() {
   const [color, setColor] = useState("");
+  const [visibilityB, setVB] = useState("visible");
+  const [visibilityR, setVR] = useState("visible");
+  const [visibilityG, setVG] = useState("visible");
+  const [visibilityBl, setVBl] = useState("hidden");
+
   return (
     <div className={`flex space-x-4 w-full h-screen bg-${color}-800`}>
       <p>Өнгө солих</p>
       <button 
-        className="border bg-red-800 py-4 px-4"
+        className={`border bg-red-800 py-4 px-4 visibility: ${visibilityR}`}
         onClick={() => {
           setColor("red");
         }}
@@ -14,7 +19,7 @@ export default function Home() {
         Улаан
       </button>
       <button 
-        className="border bg-blue-800 py-4 px-4"
+        className={`border bg-blue-800 py-4 px-4 visibility: ${visibilityB}`}
         onClick={() => {
           setColor("blue");
         }}
@@ -22,7 +27,7 @@ export default function Home() {
         Цэнхэр
       </button>
       <button 
-        className="border bg-green-800 py-4 px-4"
+        className={`border bg-green-800 py-4 px-4 visibility: ${visibilityG}`}
         onClick={() => {
           setColor("green");
         }}
@@ -30,7 +35,7 @@ export default function Home() {
         Ногоон
       </button>
       <button 
-        className="border bg-black py-4 px-4"
+        className={`border bg-black-800 py-4 px-4 visibility: ${visibilityBl}`}
         onClick={() => {
           setColor("");
         }}
@@ -38,7 +43,8 @@ export default function Home() {
         Back
       </button>
 
-        {color == "red" ? "123" : color == "blue" ? "456" : color == "green" ? "789" : "000"}
+        {color != "" ? setVBl("visible") : "000"}
+
 
     </div>
   );
