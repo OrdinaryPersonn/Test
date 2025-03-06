@@ -1,0 +1,33 @@
+.box {
+      width: 80px;
+      height: 75px;
+      display: flex;
+      margin: 20px;
+      padding: 10px;
+      font-size: 40px;
+      border-top: 5px solid rgb(182, 185, 193);
+      background-color: #EEEFF2;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+}
+.container{
+      display: flex;
+      justify-content: center; 
+      align-items: center; 
+      flex-direction: column; 
+}
+.box:nth-child(odd) {
+      background-color: #c8cbd4;
+      border-top: 5px solid rgb(124, 125, 130);
+}
+.box:last-child {
+      width: 70px;
+      height: 70px;
+      background-color: rgb(242, 137, 102);
+      border: 5px solid rgb(0, 0, 0);
+}
+.box:hover {
+      height: 85px;
+      width: 85px;
+}
