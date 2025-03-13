@@ -385,29 +385,64 @@ const Data = [
 ];
 
 function Home() {
+  const [toggle, setToggle] = useState(false);
+
   return (
-    <div className="m-5 grid h-48 grid-cols-4 place-content-around gap-4">
-      {Data.map((person) => (
-        <div className="border p-2 rounded-lg flex-col items-center justify-center flex" key={person.id}>
-            <img src={person.image} alt={`${person.fname}`} width="250" />
-            <h2 className="font-bold mt-2">{person.fname} {person.lname}</h2>
-            <div className="flex justify-between w-full pl-10 pr-10">
-            <p>Rank: {person.rank} <br></br>
-            Height: {person.height} cm <br></br>
-            Status: {person.alive ? "Alive" : "Dead"}</p>
-            <div>
-              <p>Items:</p>
-              <ul className="list-disc pl-4">
-                {person.items.map((item) => (
-                  <li key={item.id}>{item.name}</li>
-                ))}
-              </ul>
+    <div>
+      <button 
+        className="fixed top-4 right-4 border bg-yellow-800 p-4"
+        onClick={() => setToggle(!toggle)}
+      >
+          Change Style
+      </button>
+
+      {!toggle && (
+        <div className="m-5 grid h-48 grid-cols-4 place-content-around gap-4">
+          {Data.map((person) => (
+            <div className="border p-2 rounded-lg flex-col items-center justify-center flex" key={person.id}>
+              <img src={person.image} alt={`${person.fname}`} width="250" />
+              <h2 className="font-bold mt-2">{person.fname} {person.lname}</h2>
+              <div className="flex justify-between w-full pl-10 pr-10">
+                <p>Rank: {person.rank} <br />
+                Height: {person.height} cm <br />
+                Status: {person.alive ? "Alive" : "Dead"}</p>
+                <div>
+                  <p>Items:</p>
+                  <ul className="list-disc pl-4">
+                    {person.items.map((item) => (
+                      <li key={item.id}>{item.name}</li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
             </div>
-          </div>
+          ))}
         </div>
-      ))}
+      )}
+      {toggle && (
+        <div className="m-5">
+          {Data.map((person) => (
+            <div className="border p-2 rounded-lg flex-col items-center justify-center flex" key={person.id}>
+              <div className="flex justify-between items-center w-full pl-10 pr-10">
+              <img src={person.image} alt={`${person.fname}`} width="250" />
+              <h2 className="font-bold mt-2 ">{person.fname} {person.lname}</h2>
+                <p>Rank: {person.rank} <br />
+                Height: {person.height} cm <br />
+                Status: {person.alive ? "Alive" : "Dead"}</p>
+                <div>
+                  <p>Items:</p>
+                  <ul className="list-disc pl-4">
+                    {person.items.map((item) => (
+                      <li key={item.id}>{item.name}</li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
     </div>
-    
   );
 }
 
