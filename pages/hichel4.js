@@ -208,7 +208,7 @@ const Data = [
         name: "Akamaru"
       },
     ],
-      height: 160,
+      height: 169,
       image: "https://i.pinimg.com/736x/ab/47/58/ab4758431c4783711437c1676611ed37.jpg",
   },
   {
@@ -227,7 +227,7 @@ const Data = [
       name: "Shuriken"
     },
   ],
-    height: 160,
+    height: 169,
     image: "https://i.pinimg.com/736x/61/24/62/612462a96659f30452feda47792f4e16.jpg",
 },
 {
@@ -246,7 +246,7 @@ const Data = [
     name: "Shuriken"
   },
 ],
-  height: 160,
+  height: 172,
   image: "https://i.pinimg.com/564x/b0/0b/c7/b00bc7949aa25a9006ba35b3e8dc3fb0.jpg",
 },
 {
@@ -265,7 +265,7 @@ const Data = [
     name: "Shuriken"
   },
 ],
-  height: 160,
+  height: 164,
   image: "https://i.pinimg.com/736x/41/9a/dc/419adc24bbbfdb63f067484dd445da6f.jpg",
 },
 {
@@ -284,7 +284,7 @@ const Data = [
     name: "Shuriken"
   },
 ],
-  height: 160,
+  height: 172,
   image: "https://i.pinimg.com/736x/7f/e7/68/7fe7688faccb936765fbe4141512ad42.jpg",
 },
 {
@@ -303,7 +303,7 @@ const Data = [
     name: "Shuriken"
   },
 ],
-  height: 160,
+  height: 184,
   image: "https://pbs.twimg.com/profile_images/798043257028550656/SL5vKsYT_200x200.jpg",
 },
 {
@@ -322,7 +322,7 @@ const Data = [
     name: "Sand"
   },
 ],
-  height: 160,
+  height: 166,
   image: "https://i.pinimg.com/736x/69/1f/7d/691f7d9262afbdcae6154f3e9369f584.jpg",
 },
 {
@@ -341,7 +341,7 @@ const Data = [
     name: "Fan"
   },
 ],
-  height: 160,
+  height: 165,
   image: "https://i.pinimg.com/550x/0f/b4/8a/0fb48a756f44052a6635435919d20379.jpg",
 },
 {
@@ -360,7 +360,7 @@ const Data = [
     name: "Puppet"
   },
 ],
-  height: 160,
+  height: 175,
   image: "https://i.pinimg.com/736x/d5/33/6e/d5336e7a871b2a5221a9b20d7aeccb23.jpg",
 },
 {
@@ -379,67 +379,89 @@ const Data = [
     name: "Shuriken"
   },
 ],
-  height: 160,
+  height: 188,
   image: "https://i.pinimg.com/736x/63/52/14/6352143d4e68b49e0a33a061b12f3ff6.jpg",
 },
 ];
 
 function Home() {
   const [toggle, setToggle] = useState(false);
+  const [name, setName] = useState(""); 
+
+  const filterData = Data.filter((char) =>
+    `${char.fname} ${char.lname}`.toLowerCase().includes(name.toLowerCase())
+  );
+  
 
   return (
     <div>
+      <input 
+        className="fixed top-4 left-4 placeholder-shown:border-gray-500 p-2 m-5 rounded text-gray-500" 
+        placeholder="Нэрээ бичнэ үү." 
+        type="text" 
+        onChange={(e) => setName(e.target.value)}
+      />
+
       <button 
-        className="fixed top-4 right-4 border bg-yellow-800 p-4"
+        className="fixed top-4 right-4 border bg-blue-800 p-3 m-5 rounded"
         onClick={() => setToggle(!toggle)}
       >
-          Change Style
+        Change Style
       </button>
 
       {!toggle && (
         <div className="m-5 grid h-48 grid-cols-4 place-content-around gap-4">
-          {Data.map((person) => (
-            <div className="border p-2 rounded-lg flex-col items-center justify-center flex" key={person.id}>
-              <img src={person.image} alt={`${person.fname}`} width="250" />
-              <h2 className="font-bold mt-2">{person.fname} {person.lname}</h2>
-              <div className="flex justify-between w-full pl-10 pr-10">
-                <p>Rank: {person.rank} <br />
-                Height: {person.height} cm <br />
-                Status: {person.alive ? "Alive" : "Dead"}</p>
-                <div>
-                  <p>Items:</p>
-                  <ul className="list-disc pl-4">
-                    {person.items.map((item) => (
-                      <li key={item.id}>{item.name}</li>
-                    ))}
-                  </ul>
+          {filterData.length > 0 ? (
+            filterData.map((person) => (
+              <div className="border p-2 rounded-lg flex-col items-center justify-center flex" key={person.id}>
+                <img src={person.image} alt={`${person.fname}`} width="250" />
+                <h2 className="font-bold mt-2">{person.fname} {person.lname}</h2>
+                <div className="flex justify-between w-full pl-10 pr-10">
+                  <p>Rank: {person.rank} <br />
+                  Height: {person.height} cm <br />
+                  Status: {person.alive ? "Alive" : "Dead"}</p>
+                  <div>
+                    <p>Items:</p>
+                    <ul className="list-disc pl-4">
+                      {person.items.map((item) => (
+                        <li key={item.id}>{item.name}</li>
+                      ))}
+                    </ul>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            ))
+          ) : (
+            <p className="text-gray-500 mt-5">No results found.</p>
+          )}
         </div>
       )}
+
       {toggle && (
         <div className="m-5">
-          {Data.map((person) => (
-            <div className="border p-2 rounded-lg flex-col items-center justify-center flex" key={person.id}>
-              <div className="flex justify-between items-center w-full pl-10 pr-10">
-              <img src={person.image} alt={`${person.fname}`} width="250" />
-              <h2 className="font-bold mt-2 ">{person.fname} {person.lname}</h2>
-                <p>Rank: {person.rank} <br />
-                Height: {person.height} cm <br />
-                Status: {person.alive ? "Alive" : "Dead"}</p>
-                <div>
-                  <p>Items:</p>
-                  <ul className="list-disc pl-4">
-                    {person.items.map((item) => (
-                      <li key={item.id}>{item.name}</li>
-                    ))}
-                  </ul>
+          {filterData.length > 0 ? (
+            filterData.map((person) => (
+              <div className="border p-2 rounded-lg flex-col items-center justify-center flex" key={person.id}>
+                <div className="flex justify-between items-center w-full pl-10 pr-10">
+                  <img src={person.image} alt={`${person.fname}`} width="250" />
+                  <h2 className="font-bold mt-2">{person.fname} {person.lname}</h2>
+                  <p>Rank: {person.rank} <br />
+                  Height: {person.height} cm <br />
+                  Status: {person.alive ? "Alive" : "Dead"}</p>
+                  <div>
+                    <p>Items:</p>
+                    <ul className="list-disc pl-4">
+                      {person.items.map((item) => (
+                        <li key={item.id}>{item.name}</li>
+                      ))}
+                    </ul>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            ))
+          ) : (
+            <p className="text-gray-500 mt-5">No results found.</p>
+          )}
         </div>
       )}
     </div>
