@@ -1,13 +1,19 @@
-import { Html, Head, Main, NextScript } from "next/document";
+import { useState } from "react";
 
-export default function Document() {
+export default function Home() {
+  const [click, setClick] = useState("");
+
   return (
-    <Html lang="en">
-      <Head />
-      <body className="antialiased">
-        <Main />
-        <NextScript />
-      </body>
-    </Html>
+    <div className="m-5">
+      <button className="border p-1 mb-2 bg-yellow-700" onClick={() => setClick("Quasa 🥐")}>
+        Click
+      </button>
+      <button className="border p-1 mb-2 ml-5 bg-gray-700" onClick={() => setClick("")}>
+        Click
+      </button>
+      <p className="font-semibold">Name: {click} </p>
+    </div>
   );
 }
+
+// week1 aaa
