@@ -1,17 +1,21 @@
 import { useState } from "react";
+import { useRouter } from "next/router";
 
 export default function Home() {
   const [color, setColor] = useState("");
-  const [visibilityB, setVB] = useState("visible");
-  const [visibilityR, setVR] = useState("visible");
-  const [visibilityG, setVG] = useState("visible");
-  const [visibilityBl, setVBl] = useState("hidden");
+  const router = useRouter();
 
   return (
-    <div className={`flex space-x-4 w-full h-screen bg-${color}-800`}>
+    <div className={`flex space-x-4 w-full h-screen bg-${color}-800 `}>
+      <button
+          onClick={() => router.back()}
+          className="fixed bottom-4 left-4 bg-green-400 text-white py-2 px-4 rounded-md shadow-md hover:bg-green-600 transition duration-300"
+        >
+          Back
+        </button>
       <p>Өнгө солих</p>
       <button 
-        className={`border bg-red-800 py-4 px-4 visibility: ${visibilityR}`}
+        className={`border bg-red-800 py-4 px-4 `}
         onClick={() => {
           setColor("red");
         }}
@@ -19,7 +23,7 @@ export default function Home() {
         Улаан
       </button>
       <button 
-        className={`border bg-blue-800 py-4 px-4 visibility: ${visibilityB}`}
+        className={`border bg-blue-800 py-4 px-4`}
         onClick={() => {
           setColor("blue");
         }}
@@ -27,7 +31,7 @@ export default function Home() {
         Цэнхэр
       </button>
       <button 
-        className={`border bg-green-800 py-4 px-4 visibility: ${visibilityG}`}
+        className={`border bg-green-800 py-4 px-4 `}
         onClick={() => {
           setColor("green");
         }}
@@ -35,16 +39,13 @@ export default function Home() {
         Ногоон
       </button>
       <button 
-        className={`border bg-black-800 py-4 px-4 visibility: ${visibilityBl}`}
+        className={`border bg-black-800 py-4 px-4 `}
         onClick={() => {
           setColor("");
         }}
       >
         Back
       </button>
-
-        {color != "" ? setVBl("visible") : "000"}
-
 
     </div>
   );

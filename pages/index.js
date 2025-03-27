@@ -6,7 +6,7 @@ export default function Home() {
   const router = useRouter();
   return(
     <div className=" h-screen p-10">
-      <div className="flex justify-center items-center mt-5 mb-10"><span className="font-bold text-4xl">Бие даалт</span></div>
+      <div className="flex justify-center items-center mt-5 mb-10"><span className="font-bold text-4xl">Гүнсан-Янжин</span></div>
       <div className="bg-black flex justify-center items-center border-solid border-2 rounded-3xl m-5">
       
       <button
