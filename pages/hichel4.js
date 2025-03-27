@@ -449,7 +449,7 @@ function Home() {
         <div className="m-5 ">
           {filterData.length > 0 ? (
             filterData.map((person) => (
-              <div className="border p-2 rounded-lg flex-col items-center justify-center flex" key={person.id}>
+              <div className="border p-2 rounded-lg flex-col items-center justify-center flex w-max" key={person.id}>
                 <div className="flex justify-between items-center w-full pl-10 pr-10">
                   <img src={person.image} alt={`${person.fname}`} width="250" />
                   <h2 className="font-bold mt-2">{person.fname} {person.lname}</h2>
