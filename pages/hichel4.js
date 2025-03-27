@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useRouter } from "next/router";
 
 const Data = [
   {
@@ -387,6 +388,7 @@ const Data = [
 function Home() {
   const [toggle, setToggle] = useState(false);
   const [name, setName] = useState(""); 
+  const router = useRouter();
 
   const filterData = Data.filter((char) =>
     `${char.fname} ${char.lname}`.toLowerCase().includes(name.toLowerCase())
@@ -395,31 +397,31 @@ function Home() {
 
   return (
     <div>
+      <button
+          onClick={() => router.back()}
+          className="fixed bottom-4 left-6 bg-green-400 text-white py-2 px-4 rounded-md shadow-md hover:bg-green-600 transition duration-300"
+        >
+          Back
+        </button>
       <input 
         className="fixed top-4 left-4 placeholder-shown:border-gray-500 p-2 m-5 rounded text-gray-500" 
         placeholder="Нэрээ бичнэ үү." 
         type="text" 
         onChange={(e) => setName(e.target.value)}
       />
-      <input 
-        className="fixed top-4 left-184 placeholder-shown:border-gray-500 p-2 m-5 rounded text-gray-500" 
-        placeholder="Нэрээ бичнэ үү." 
-        type="text" 
-        onChange={(e) => setName(e.target.value)}
-      />
 
       <button 
-        className="fixed top-4 right-4 border bg-blue-800 p-3 m-5 rounded"
+        className="fixed top-4 right-4 bg-blue-600 text-white py-2 px-4 rounded-md shadow-md hover:bg-blue-800 transition duration-300"
         onClick={() => setToggle(!toggle)}
       >
         Change Style
       </button>
 
       {!toggle && (
-        <div className="m-5 grid h-48 grid-cols-4 place-content-around gap-4">
+        <div className="m-5 grid h-48 grid-cols-4 place-content-around gap-4 min-w-full">
           {filterData.length > 0 ? (
             filterData.map((person) => (
-              <div className="border p-2 rounded-lg flex-col items-center justify-center flex" key={person.id}>
+              <div className="border p-2 rounded-lg flex-col items-center justify-center flex min-w-max" key={person.id}>
                 <img src={person.image} alt={`${person.fname}`} width="250" />
                 <h2 className="font-bold mt-2">{person.fname} {person.lname}</h2>
                 <div className="flex justify-between w-full pl-10 pr-10">
@@ -444,10 +446,10 @@ function Home() {
       )}
 
       {toggle && (
-        <div className="m-5">
+        <div className="m-5 ">
           {filterData.length > 0 ? (
             filterData.map((person) => (
-              <div className="border p-2 rounded-lg flex-col items-center justify-center flex " key={person.id}>
+              <div className="border p-2 rounded-lg flex-col items-center justify-center flex" key={person.id}>
                 <div className="flex justify-between items-center w-full pl-10 pr-10">
                   <img src={person.image} alt={`${person.fname}`} width="250" />
                   <h2 className="font-bold mt-2">{person.fname} {person.lname}</h2>
@@ -475,3 +477,5 @@ function Home() {
 }
 
 export default Home;
+
+//aaaaaa
