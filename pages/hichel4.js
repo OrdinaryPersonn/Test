@@ -418,7 +418,7 @@ function Home() {
       </button>
 
       {!toggle && (
-        <div className="m-5 grid h-48 grid-cols-4 place-content-around gap-4 min-w-full">
+        <div className="m-5 grid h-48 xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 place-content-around gap-4 min-w-full">
           {filterData.length > 0 ? (
             filterData.map((person) => (
               <div className="border p-2 rounded-lg flex-col items-center justify-center flex min-w-max" key={person.id}>
