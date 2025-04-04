@@ -10,7 +10,7 @@ export default function Home() {
       <div className="flex items-center space-x-4 mb-8">
         <p className="text-lg">Нэр:</p>
         <input 
-          className="border p-2 rounded placeholder-gray-500 text-black"
+          className="border p-2 rounded placeholder-gray-500"
           placeholder="Нэрээ бичнэ үү."
           type="text"
           onChange={(e) => setName(e.target.value)}
