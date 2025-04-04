@@ -398,11 +398,11 @@ function Home() {
   return (
     <div>
       <button
-          onClick={() => router.back()}
-          className="fixed bottom-4 left-6 bg-green-400 text-white py-2 px-4 rounded-md shadow-md hover:bg-green-600 transition duration-300"
-        >
-          Back
-        </button>
+        onClick={() => router.back()}
+        className="fixed bottom-4 left-4 bg-green-500 text-white py-2 px-6 rounded-md shadow-md hover:bg-green-600 transition duration-300"
+      >
+        Back
+      </button>
       <input 
         className="fixed top-4 left-4 placeholder-shown:border-gray-500 p-2 m-5 rounded text-gray-500" 
         placeholder="Нэрээ бичнэ үү." 
@@ -445,33 +445,47 @@ function Home() {
         </div>
       )}
 
-      {toggle && (
-        <div className="m-5 flex-col items-center justify-center flex">
-          {filterData.length > 0 ? (
-            filterData.map((person) => (
-              <div className="border p-2 rounded-lg flex-col items-center justify-center flex w-max" key={person.id}>
-                <div className="flex justify-between items-center w-full pl-10 pr-10">
-                  <img src={person.image} alt={`${person.fname}`} width="250" />
-                  <h2 className="font-bold mt-2">{person.fname} <br></br>{person.lname}</h2>
-                  <p>Rank: {person.rank} <br />
-                  Height: {person.height} cm <br />
-                  Status: {person.alive ? "Alive" : "Dead"}</p>
-                  <div>
-                    <p>Items:</p>
-                    <ul className="list-disc pl-4">
-                      {person.items.map((item) => (
-                        <li key={item.id}>{item.name}</li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
+{toggle && (
+  <div className="m-5 flex flex-col items-center justify-center">
+    {filterData.length > 0 ? (
+      filterData.map((person) => (
+        <div 
+          className="border-2 p-4 rounded-lg flex flex-col items-center w-full max-w-4xl" 
+          key={person.id}
+        >
+          <div className="flex justify-between items-center w-full px-8">
+            <img 
+              src={person.image} 
+              alt={`${person.fname}`} 
+              width="250" 
+              className="pr-4"
+            />
+            <div className="flex flex-col">
+              <h2 className="font-bold text-xl">
+                {person.fname} {person.lname}
+              </h2>
+              <div className="mt-2">
+                <p>Rank: {person.rank}</p>
+                <p>Height: {person.height} cm</p>
+                <p>Status: {person.alive ? "Alive" : "Dead"}</p>
               </div>
-            ))
-          ) : (
-            <p className="text-gray-500 mt-5">No results found.</p>
-          )}
+            </div>
+            <div className="ml-8">
+              <p className="font-semibold">Items:</p>
+              <ul className="list-disc pl-5">
+                {person.items.map((item) => (
+                  <li key={item.id}>{item.name}</li>
+                ))}
+              </ul>
+            </div>
+          </div>
         </div>
-      )}
+      ))
+    ) : (
+      <p className="text-gray-500 mt-5">No results found.</p>
+    )}
+  </div>
+)}
     </div>
   );
 }
