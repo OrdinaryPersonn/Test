@@ -446,19 +446,19 @@ function Home() {
       )}
 
 {toggle && (
-  <div className="m-5 flex flex-col items-center justify-center">
+  <div className="m-2 flex flex-col items-center justify-center">
     {filterData.length > 0 ? (
       filterData.map((person) => (
         <div 
-          className="border-2 p-4 rounded-lg flex flex-col items-center w-full max-w-4xl" 
+          className="border-2 p-2 rounded-lg flex flex-col items-center w-full max-w-4xl mt-3" 
           key={person.id}
         >
           <div className="flex justify-between items-center w-full px-8">
             <img 
               src={person.image} 
               alt={`${person.fname}`} 
-              width="250" 
-              className="pr-4"
+              width="150" 
+              className="pr-2"
             />
             <div className="flex flex-col">
               <h2 className="font-bold text-xl">
