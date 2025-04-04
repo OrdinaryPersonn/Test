@@ -6,26 +6,26 @@ export default function Home() {
   const router = useRouter();
 
   return (
-    <div className="flex w-full h-8 m-5">
+    <div className="flex flex-col items-center justify-center min-h-screen p-4">
+      <div className="flex items-center space-x-4 mb-8">
+        <p className="text-lg">Нэр:</p>
+        <input 
+          className="border p-2 rounded placeholder-gray-500 text-black"
+          placeholder="Нэрээ бичнэ үү."
+          type="text"
+          onChange={(e) => setName(e.target.value)}
+        />
+        <p className="text-lg">
+          Hi 11В, {name ? name : "сурагч"}!
+        </p>
+      </div>
+
       <button
-          onClick={() => router.back()}
-          className="fixed bottom-4 left-4 bg-green-400 text-white py-2 px-4 rounded-md shadow-md hover:bg-green-600 transition duration-300"
-        >
-          Back
-        </button>
-      <p className="mr-5 ml-5">Нэр:</p>
-      <input class="placeholder-shown:border-gray-500 p-2 text-gray-500" placeholder="Нэрээ бичнэ үү." type="text"  onchange="myFunction()"onChange={(e) => setName(e.target.value)}></input>
-      <p className="ml-5">Hi 11В, {name != "" ? name : "сурагч"}!</p>
+        onClick={() => router.back()}
+        className="fixed bottom-4 left-4 bg-green-500 text-white py-2 px-6 rounded hover:bg-green-600"
+      >
+        Back
+      </button>
     </div>
   );
-};
-
-
-
-
-// onChange={(e) => setName(e.target.value)}
-// setName(e.target.value)
-
-
-// week3 aaa
-
+}
