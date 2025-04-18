@@ -1,67 +1,120 @@
-import Image from "next/image";
-import { useRouter } from "next/router";
-
 export default function Home() {
-  const router = useRouter();
-
   return (
-    <div className="min-h-screen bg-gray-900 relative overflow-hidden">
-      <div 
-        className="absolute inset-0 bg-cover bg-center opacity-40"
-        style={{
-          backgroundImage: "url('https://scontent.fuln2-2.fna.fbcdn.net/v/t39.30808-6/486281145_1058280036332656_8582639152140190605_n.png?_nc_cat=100&ccb=1-7&_nc_sid=cc71e4&_nc_ohc=nIWWYHUENMoQ7kNvgErU1Bd&_nc_oc=Adnk0YyTEW422tme3sGXQbfx1Z_xjzxOOk51ZKrHcD9wVmBSRdjwsMLVffMQNmdTfew&_nc_zt=23&_nc_ht=scontent.fuln2-2.fna&_nc_gid=2rRo81hv_QP9RJ03wWthJg&oh=00_AYEK1TucqpVEOJn2yLoKpyy9fkMQJyR3satFMQHy7u4gZQ&oe=67F3EE62')"
-        }}
-      ></div>
-      <div className="relative flex flex-col items-center justify-center min-h-screen p-6">
-        <div className="mb-12 text-center">
-          <h1 className="text-4xl sm:text-5xl font-bold text-white mb-2 bg-black/30 backdrop-blur-md rounded-lg">
-            Гүнсан-Янжин
-          </h1>
+    <div className="min-h-screen bg-white">
+      <header className="fixed top-0 left-0 w-full bg-white shadow-md">
+        <div className="container mx-auto flex items-center justify-between px-4 py-2">
+          <div className="flex items-center p-2">
+            <img
+              src="https://www.toki.mn/wp-content/uploads/2022/08/Asset-1@3x.png"
+              alt="Toki Logo"
+              className="h-12"
+            />
+          </div>
+          <nav className="hidden md:flex space-x-6 text-gray-700 font-medium">
+            <span>Үйлчилгээ</span>
+            <span>Давуу тал</span>
+            <span>Мэдээ</span>
+            <span>Хамтран ажиллах</span>
+          </nav>
         </div>
+      </header>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full max-w-md">
-          <button
-            onClick={() => router.push("/hichel1")}
-            className="bg-blue-800/80 hover:bg-blue-700 text-white p-6 rounded-lg transition-all duration-300 hover:scale-105 flex flex-col items-center backdrop-blur-sm"
-          >
-            <div className="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mb-3">
-              <span className="text-xl font-bold">1</span>
-            </div>
-            <span className="text-lg font-medium">Hichel 1</span>
-          </button>
-
-          <button
-            onClick={() => router.push("/hichel2")}
-            className="bg-purple-800/80 hover:bg-purple-700 text-white p-6 rounded-lg transition-all duration-300 hover:scale-105 flex flex-col items-center backdrop-blur-sm"
-          >
-            <div className="w-16 h-16 bg-purple-600 rounded-full flex items-center justify-center mb-3">
-              <span className="text-xl font-bold">2</span>
-            </div>
-            <span className="text-lg font-medium">Hichel 2</span>
-          </button>
-
-          <button
-            onClick={() => router.push("/hichel3")}
-            className="bg-indigo-800/80 hover:bg-indigo-700 text-white p-6 rounded-lg transition-all duration-300 hover:scale-105 flex flex-col items-center backdrop-blur-sm"
-          >
-            <div className="w-16 h-16 bg-indigo-600 rounded-full flex items-center justify-center mb-3">
-              <span className="text-xl font-bold">3</span>
-            </div>
-            <span className="text-lg font-medium">Hichel 3</span>
-          </button>
-
-          <button
-            onClick={() => router.push("/hichel4")}
-            className="bg-pink-800/80 hover:bg-pink-700 text-white p-6 rounded-lg transition-all duration-300 hover:scale-105 flex flex-col items-center backdrop-blur-sm"
-          >
-            <div className="w-16 h-16 bg-pink-600 rounded-full flex items-center justify-center mb-3">
-              <span className="text-xl font-bold">4</span>
-            </div>
-            <span className="text-lg font-medium">Hichel 4</span>
-          </button>
+      <div className="pt-20 pb-24 bg-[#fff2d7]">
+        <div className="container mx-auto text-center">
+          <h1 className="text-3xl text-black mb-0 mt-10"> <br></br> <br></br>ХЭРЭГЦЭЭТ ҮЙЛЧИЛГЭЭГ НЭГ ДОРООС...</h1>
+          <div className="flex justify-center">
+            <img
+              src="https://www.toki.mn/wp-content/uploads/2020/06/Artboard-1-2.png"
+              alt="Hero img"
+              className="w-full"
+            />
+          </div>
+          <div className="flex justify-center space-x-4 mt-8">
+            <img
+              src="https://www.toki.mn/wp-content/uploads/2021/01/apple.png"
+              alt="App Store"
+              className="h-12"
+            />
+            <img
+              src="https://www.toki.mn/wp-content/uploads/2021/01/android.png"
+              alt="Google Play"
+              className="h-12"
+            />
+          </div>
         </div>
-
       </div>
+
+      <div className="py-20 bg-white">
+        <div>
+          <div className="flex items-center justify-center text-center">
+            <img
+              src="https://www.toki.mn/wp-content/uploads/2020/06/Artboard-2.png"
+              className="w-1/2 mb-6"
+            />
+            <p className="text-gray-700">
+            <span className="text-3xl font-bold text-yellow-600 mb-4">Toki Service</span> <br></br> <br></br>
+              Та такси дуудах, кофе, хоол захиалах, нэгж дата авах, хэрэглээний <br></br> төлбөрүүдээ төлөх, тоглоом тоглох, цэнэглэх гэх мэт өдөр бүрд <br></br>хэрэгтэй үйлчилгээнүүдээ нэг дороос хялбар, хурдан авах <br></br>боломжтой.
+            </p>
+          </div>
+
+          <div className="flex items-center text-center justify-center bg-[#fff2d7]">
+            <p className="text-gray-700"> <span className="text-3xl font-bold text-yellow-600 mb-4">Toki Pay</span> <br></br> <br></br>
+              Toki Pay нь таны бодит хэтэвчийг цахимжуулсан цоо шинэ дижитал хэтэвч <br></br>юм. Бүх банкны картаа холбож төлбөрөө төлөөд, лояалти карт болон бичиг <br></br>баримтуудаа нэг дор хадгалаарай.
+            </p>
+            <img
+              src="https://www.toki.mn/wp-content/uploads/2020/06/Artboard-3.png"
+              className="w-1/2 mb-6"
+            />
+          </div>
+          <div className="flex items-center justify-center text-center">
+            <img
+              src="https://www.toki.mn/wp-content/uploads/2020/06/Artboard-4.png"
+              className="w-1/2 mb-6"
+            />
+            <p className="text-gray-700">
+            <span className="text-3xl font-bold text-yellow-600 mb-4">Toki Service</span> <br></br> <br></br>
+            Та өөрийн хүссэн бараагаа албан ёсны дэлгүүрүүдээс сонголт хийж, <br></br>нэг дороос шууд захиалах боломжтой.
+            </p>
+          </div>
+        </div>
+        
+      </div>
+
+      <div>
+        <div className="container mx-auto text-center mb-48">
+          <h2 className="text-4xl font-bold text-yellow-600 mb-6">Toki апп өдөр бүр танд тусална</h2>
+          <p className="text-gray-700 mb-8">
+            Toki апп бол хүн бүрийн өдөр тутамд хэрэгтэй бүх үйлчилгээг нэг дор багтаасан таны цаг хугацааг хэмнэх хялбар, хэрэгтэй аппликейшн юм.
+          </p>
+        </div>
+      </div>
+      <div className="bg-[#fff2d7] flex justify-center pt-6 pb-16"><button className="inline-block bg-yellow-500 text-white font-bold py-3 px-8 rounded-full">
+            ДАВУУ ТАЛ
+          </button></div>
+
+      <footer className="bg-gray-900 text-white py-12">
+        <div className="container mx-auto grid grid-cols-3 gap-8 flex justify-center items-center">
+          <div className="text-center md:text-left">
+            <img
+              src="https://www.toki.mn/wp-content/uploads/2022/08/Asset-1@3x.png"
+              alt="Footer Logo"
+              className="w-24 mx-auto md:mx-0 mb-4"
+            />
+          </div>
+          <div className="text-center md:text-left text-[#b3b3b3]">
+          <p className="text-sm">Түгээмэл асуулт <br></br> <br></br>Сүхбаатар дүүрэг, 8-р хороо, Сэнтрал Тауэр, 8-р давхар <br></br>
+            77074477, 4477  info@toki.mn <br></br> <br></br>
+            Copyright © 2022  Toki.mn</p>
+          </div>
+          <div className="text-center md:text-left text-[#b3b3b3]">
+            <ul className="space-y-2">
+              <p>Нууцлал</p>
+            </ul>
+            <div className="flex justify-center md:justify-start space-x-4 mt-4">
+            </div>
+          </div>
+        </div>
+      </footer>
     </div>
   );
-}
+}   

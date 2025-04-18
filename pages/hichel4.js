@@ -418,7 +418,7 @@ function Home() {
       </button>
 
       {!toggle && (
-        <div className="m-5 grid h-48 xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 place-content-around gap-4 min-w-full">
+        <div className="mt-5 grid h-48 xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 place-content-around gap-4 min-w-full">
           {filterData.length > 0 ? (
             filterData.map((person) => (
               <div className="border p-2 rounded-lg flex-col items-center justify-center flex min-w-max" key={person.id}>
@@ -446,19 +446,19 @@ function Home() {
       )}
 
 {toggle && (
-  <div className="m-2 flex flex-col items-center justify-center">
+  <div className=" flex flex-col items-center justify-center ">
     {filterData.length > 0 ? (
       filterData.map((person) => (
         <div 
-          className="border-2 p-2 rounded-lg flex flex-col items-center w-full max-w-4xl mt-3" 
+          className="rounded-lg flex flex-col items-center w-full max-w-4xl mt-3 " 
           key={person.id}
         >
-          <div className="flex justify-between items-center w-full px-8">
-            <img 
+          <div className="flex justify-between items-center w-full px-8 ">
+            <img
               src={person.image} 
               alt={`${person.fname}`} 
               width="150" 
-              className="pr-2"
+              className="pr-2 "
             />
             <div className="flex flex-col">
               <h2 className="font-bold text-xl">
