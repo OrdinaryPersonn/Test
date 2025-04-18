@@ -1,4 +1,23 @@
+import { useEffect } from "react";
 export default function Home() {
+
+  useEffect(() => {
+    document.querySelectorAll("[data-scroll-to]").forEach((item) => {
+      item.addEventListener("click", () => {
+        const targetId = item.getAttribute("data-scroll-to");
+        const targetElement = document.querySelector(targetId);
+
+        console.log(targetElement)
+  
+        if (targetElement) {
+          targetElement.scrollIntoView({ behavior: "smooth" });
+        } else {
+          console.error(`Element with ID ${targetId} not found`);
+        }
+      })
+    })
+  }, [])
+
   return (
     <div className="min-h-screen bg-white">
       <header className="fixed top-0 left-0 w-full bg-white shadow-md">
@@ -11,10 +30,10 @@ export default function Home() {
             />
           </div>
           <nav className="hidden md:flex space-x-6 text-gray-700 font-medium">
-            <span>Үйлчилгээ</span>
-            <span>Давуу тал</span>
-            <span>Мэдээ</span>
-            <span>Хамтран ажиллах</span>
+            <button data-scroll-to="#section1">Үйлчилгээ</button>
+            <button data-scroll-to="#section2">Давуу тал</button>
+            <button data-scroll-to="#section3">Мэдээ</button>
+            <button data-scroll-to="#section4">Хамтран ажиллах</button>
           </nav>
         </div>
       </header>
@@ -46,19 +65,19 @@ export default function Home() {
 
       <div className="py-20 bg-white">
         <div>
-          <div className="flex items-center justify-center text-center">
+          <div className="flex items-center justify-center text-center h-screen"id="section1" >
             <img
               src="https://www.toki.mn/wp-content/uploads/2020/06/Artboard-2.png"
               className="w-1/2 mb-6"
             />
             <p className="text-gray-700">
-            <span className="text-3xl font-bold text-yellow-600 mb-4">Toki Service</span> <br></br> <br></br>
+            <span className="text-3xl font-bold text-[#ffc63d] mb-4 " >Toki Service</span> <br></br> <br></br>
               Та такси дуудах, кофе, хоол захиалах, нэгж дата авах, хэрэглээний <br></br> төлбөрүүдээ төлөх, тоглоом тоглох, цэнэглэх гэх мэт өдөр бүрд <br></br>хэрэгтэй үйлчилгээнүүдээ нэг дороос хялбар, хурдан авах <br></br>боломжтой.
             </p>
           </div>
 
-          <div className="flex items-center text-center justify-center bg-[#fff2d7]">
-            <p className="text-gray-700"> <span className="text-3xl font-bold text-yellow-600 mb-4">Toki Pay</span> <br></br> <br></br>
+          <div className="flex items-center text-center justify-center bg-[#fff2d7] h-screen" id="section2">
+            <p className="text-gray-700"> <span className="text-3xl font-bold text-[#ffc63d] mb-4">Toki Pay</span> <br></br> <br></br>
               Toki Pay нь таны бодит хэтэвчийг цахимжуулсан цоо шинэ дижитал хэтэвч <br></br>юм. Бүх банкны картаа холбож төлбөрөө төлөөд, лояалти карт болон бичиг <br></br>баримтуудаа нэг дор хадгалаарай.
             </p>
             <img
@@ -66,33 +85,33 @@ export default function Home() {
               className="w-1/2 mb-6"
             />
           </div>
-          <div className="flex items-center justify-center text-center">
+          <div className="flex items-center justify-center text-center h-screen" id="section3">
             <img
               src="https://www.toki.mn/wp-content/uploads/2020/06/Artboard-4.png"
               className="w-1/2 mb-6"
             />
             <p className="text-gray-700">
-            <span className="text-3xl font-bold text-yellow-600 mb-4">Toki Service</span> <br></br> <br></br>
+            <span className="text-3xl font-bold text-[#ffc63d] mb-4">Toki Shop</span> <br></br> <br></br>
             Та өөрийн хүссэн бараагаа албан ёсны дэлгүүрүүдээс сонголт хийж, <br></br>нэг дороос шууд захиалах боломжтой.
             </p>
           </div>
         </div>
-        
+
       </div>
 
       <div>
         <div className="container mx-auto text-center mb-48">
-          <h2 className="text-4xl font-bold text-yellow-600 mb-6">Toki апп өдөр бүр танд тусална</h2>
+          <h2 className="text-4xl font-bold text-[#ffc63d] mb-6">Toki апп өдөр бүр танд тусална</h2>
           <p className="text-gray-700 mb-8">
             Toki апп бол хүн бүрийн өдөр тутамд хэрэгтэй бүх үйлчилгээг нэг дор багтаасан таны цаг хугацааг хэмнэх хялбар, хэрэгтэй аппликейшн юм.
           </p>
         </div>
       </div>
-      <div className="bg-[#fff2d7] flex justify-center pt-6 pb-16"><button className="inline-block bg-yellow-500 text-white font-bold py-3 px-8 rounded-full">
+      <div className="bg-[#fff2d7] flex justify-center pt-6 pb-16"><button className="inline-block bg-[#ffc63d] text-white font-bold py-3 px-8 rounded-full" id="section4">
             ДАВУУ ТАЛ
           </button></div>
 
-      <footer className="bg-gray-900 text-white py-12">
+      <footer className="bg-gray-900 text-white py-6">
         <div className="container mx-auto grid grid-cols-3 gap-8 flex justify-center items-center">
           <div className="text-center md:text-left">
             <img
