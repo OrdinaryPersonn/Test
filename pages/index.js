@@ -1,5 +1,7 @@
 import { useEffect } from "react";
+import { useRouter } from "next/router";
 export default function Home() {
+  const router = useRouter();
 
   useEffect(() => {
     document.querySelectorAll("[data-scroll-to]").forEach((item) => {
@@ -20,6 +22,12 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-white">
+      <button
+        onClick={() => router.back()}
+        className="fixed bottom-4 left-4 bg-green-500 text-white py-2 px-6 rounded-md shadow-md hover:bg-green-600 transition duration-300"
+      >
+        Back
+      </button>
       <header className="fixed top-0 left-0 w-full bg-white shadow-md">
         <div className="container mx-auto flex items-center justify-between px-4 py-2">
           <div className="flex items-center p-2">
